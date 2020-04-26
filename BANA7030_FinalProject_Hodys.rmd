@@ -1,0 +1,48 @@
+---
+title: "BANA7030_FinalProject_Hodys"
+author: "Ethan Hodys  (M13603433)"
+date: "April 24, 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Final Project {.tabset}
+
+### Project Description
+
+Conducted a simulation study on the Wendy's Driver thru. This restaurant
+gets flooded with customers at night, especially on weekends and there are long queues outside the
+restaurant. Customers' waiting timeis quite high on these timings, also some customers leave the queues
+without taking service due to the long waiting times. In this study, I was planning to see if adding a server
+at the peak timings would help reduce customer waiting time significantly and thereby help restaurant
+serve more customers and make more profit. But after my conversation with the manager of the
+restaurant, I came to know that adding one more server just to reduce customers' waiting time is not a
+beneficial option for the restaurant as they will need to pay the additional server. But after the close
+observation of the system, I realized that some customers decide their order after arriving at the counter,
+mainly due to unavailability of menu (Though menu is available on the screen it is very inconvenient to
+read it from a distance). Also,those customers who come in groups discuss their order after reaching to
+an order counter, which consumes a lot of time and other customers have to spend more time waiting in
+queue. In this study, I have analyzed two scenarios:
+
+1) 'Original'scenario:Where some percentage of customers decide their orders after arriving at the
+counter
+2) 'Whatif' scenario: Where customers have already decided their orders
+
+```{r, fig.dim=c(5, 3)}
+data("mtcars")
+par(mar = c(4, 4, .5, .1))
+plot(mpg ~ hp, data = mtcars, pch = 19)
+```
+
+### Report 
+
+Put Data Here
+
+
+
+
+
+

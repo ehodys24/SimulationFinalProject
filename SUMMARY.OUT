@@ -1,0 +1,17 @@
+Fit All
+
+Document:  C:\Users\Ethan Hodys\Documents\MastersWork\SimulationFinalProject\mySimulationData
+Data File: C:\Users\Ethan Hodys\Documents\MastersWork\SimulationFinalProject\mySimulationData
+
+
+Function       Sq Error
+-----------------------
+Gamma          0.00125
+Weibull        0.00165
+Lognormal      0.00341
+Beta           0.00504
+Exponential    0.00708
+Erlang         0.00708
+Normal         0.0476
+Triangular     0.0636
+Uniform        0.135
