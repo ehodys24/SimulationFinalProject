@@ -20,7 +20,7 @@ library(DT)
 
 Given the current situation of the pandemic, it was difficult to find a way to collect data safely for an actual problem during normal "life". So instead I chose to collect data and model a problem I observed at the fast-food drive thru restaurants in my town.  I wanted to provide evidence via modelling in Arena to justify the cost of implementating a second outdoor menu and ordering lane to improve drive thru efficiency. 
 
-I collected the observations below while monitoring the drive-thru lane at my local Wendy's while sitting in my car in the parking lot.  This is a single lane ordering, single menu, 2 service window restaurant that was operating only a single window for payment and food.  The table below doesnt have any metadata for the observations that they were captured over a few different days for different time periods whenever I needed to leave to shope for essential goods.
+I collected the observations below while monitoring the drive-thru lane at my local Wendy's while sitting in my car in the parking lot (3802 Hamilton Cleves Rd, Hamilton, OH 45013).  This is a single lane ordering, single menu, 2 service window restaurant that was operating only a single window for payment and food.  The table below doesnt have any metadata for the observations that they were captured over a few different days for different time periods whenever I needed to leave to shope for essential goods.
 
 
 ```{r}
@@ -29,88 +29,75 @@ DT::datatable(observations)
 
 
 ### Report 
+#### Abstract
 
-The primary objective was: 
-Find deficiencies in the drive Find deficiencies in the drive
--through through
-process process
+**Primary Objective:**  using real-world observations, create and simulate a model for detecting correctable inefficiencies for a typical American fast good restaurant. This is a proof-of-concept template as a basis for more rigorous future analysis and study. 
 
-Accurately simulate the system using Accurately simulate the system using
-Arena software.
+**Secondary Objective:** Also to provide a framework for assisting others studying simulation techniques
 
-Goal was to figure out
-a. The average time in system
-b. The average waiting time in queue
+**Simulation Software:** Arean Simulation Software: Free Community Edition (https://www.arenasimulation.com/)
 
+**Assumptions & Weaknesses:**  observations were performed over limited days and periods of the day for a single location for a single restaurant. Conclusions will have low accuracy and only apply this this single Wendy's restaurant location at: 3802 Hamilton Cleves Rd, Hamilton, OH 45013
 
+**Key Goals:**
 
-PROCESS OF THE SYSTEM PROCESS OF THE SYSTEM
+1. Determine the average time in system
+2. Determine average waiting time in queue
 
-Inter arrival points being consider are: Inter arrival points being consider are:
-1. Entity enters the system queue and it stops at 1. Entity enters the system queue and it stops at the
-"intercom box intercom box
-"
-2. Entity time to place an order 2. Entity time to place an order
-3. After the order is placed, entity goes from the 3. After the order is placed, entity goes from the
-"ordering portal ordering portal
-" to the server window to the server window
-4. Entity at the server window 4. Entity at the server window
-5. Entity exits the system 5. Entity exits the system
+*** 
+#### Analysis
 
-EXPERIMENTAL SETUP EXPERIMENTAL SETUP
+**Process**
 
-Observed system to come up with a Observed system to come up with a
-proper Arena model. proper Arena model.
- Entities Entities
-- Cars going through system Cars going through system
--Variables Variables
-- size of car, quantity of food and drinks ordered, size of car, quantity of food and drinks ordered,
-payment type, change giv payment type, change given or not. en or not.
- Resources Resources
-- Ordering Intercom Box Ordering Intercom Box
-- Server Window Server Window
+Below is a high level list of the arrival points that were taken in consideration:
 
-EXPERIMENTAL SETUP EXPERIMENTAL SETUP
- Delays
-- Size of order Size of order
-- Number of cars in queue Number of cars in queue
-- Customer delays Customer delays
-- Unexpected Unexpected
-- Car break down, intercom malfunction, server difficulties Car break down, intercom malfunction, server difficulties
+1. Entity enters the system queue waiting at the intercom.
+2. Wait time for Entity to place their order with live employee.
+3. After order is completed proceeds to the live employee at the service window.
+4. Entity waits at the service window
+5. Entity exits the system 
+
+**Experimentation Setup**
+
+As mentioned in the abstract, the real world system was observed to collect the necessary data for the purpos off creating a modelto be used in the *ARENA Simulation Software*
+
+Model Entities identified : 
+
+* Cars 
+
+Variables: 
+
+* Quantity of order items
+* Payment type
+* Change given 
+
+Resources:  
+
+* Order Intercom 
+* Service Window 
 
 
+Delays: 
+
+* Order size
+* Number of cars in queue
+* Customer delay 
+* Unexpected Unexpected
+* Car break down, intercom malfunction, server difficulties Car break down, intercom malfunction, server difficulties
+
+*** 
+#### Results Summary
 
 
-Amount of food and drinks ordered Amount of food and drinks ordered corresponded to amount of time spent at corresponded to amount of time spent at " "intercom box intercom box" "and server window. and server window.
+Unsurprisingly, the quantity of items ordered corresponded to amount of time spent the intercom and the service window.
 
-Average time in system Average time in system 
-  -2.74 minutes
+Average time in system:
+
+* 2.74 minutes
   
-Average waiting time between resources Average waiting time between resources -35.05 seconds
+Average time waiting resources:
 
-
-TACTICAL CONSIDERATION TACTICAL CONSIDERATION
-
- Add a second server window Add a second server window
- Benefits Benefits
-. Increase capacity of customers per day Increase capacity of customers per day
-. Increased server availability Increased server availability
-. Decrease amount of time it takes to go through the Decrease amount of time it takes to go through the
-system
-
- Increasing customer satisfaction ensuring future Increasing customer satisfaction ensuring future
-business.
-
-TACTICAL CONSIDERATIONS TACTICAL CONSIDERATIONS
-
- Losses
-. Decreased server utilization Decreased server utilization
-. High cost to construct new window High cost to construct new window
-
-
- Loss of business during construction period Loss of business during construction period
-. Saves only seconds off of total time in system Saves only seconds off of total time in system
-
+* 35.05 seconds
 
 ````{r, fig.width=9, fig.height=10, echo=FALSE, warning=FALSE}
 library(knitr)
@@ -118,11 +105,33 @@ library(knitr)
 include_graphics("image\\results.png") 
 ```
 
+*** 
+#### Recommendations
+
+Add a second service window for the following benefits: 
+
+* Increase capacity of customers per day Increase capacity of customers per day
+* Increased server availability Increased server availability
+* Decrease amount of time it takes to go through the Decrease amount of time it takes to go through the
+system
+* Increasing customer satisfaction as a means of maintaining/increasing current revenue
+
+Associated Costs: 
+* Lower employee utilization at service windows
+* Cost to construct new window and, potentially, second intercom and menu
+* Net reduction in total time for a single order is only a matter of **seconds** 
+
+
+
+
 
 
 ### Appendix
 
 #### Arena Input Analysis
+
+It is already known that drive thru windows follow a Poisson distributon and the Input Analyzer confirms this for my observations. A classification of Gamma or Weibull distribution is consistent.
+
 ````{r, fig.width=9, fig.height=10, echo=FALSE, warning=FALSE}
 library(knitr)
 
@@ -130,6 +139,9 @@ include_graphics("image\\inputanalyzer.png")
 ```
 
 #### Arena Input Analysis Summary
+
+
+
 ````{r, fig.width=9, fig.height=10, echo=FALSE, warning=FALSE}
 library(knitr)
 
