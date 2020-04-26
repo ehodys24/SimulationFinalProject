@@ -8,12 +8,17 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+```{r global, include=FALSE}
+# load data in 'global' chunk so it can be shared by all users of the dashboard
+observations <- readr::read_csv("Data.csv")
 
+library(DT)
+```
 ## Final Project {.tabset}
 
 ### Project Description
 
-Conducted a simulation study on the Wendy's Driver thru. This restaurant
+Conducted a simulation study on the Wendy's Driver thru near my home from my car in the parking lot. This restaurant
 gets flooded with customers at night, especially on weekends and there are long queues outside the
 restaurant. Customers' waiting timeis quite high on these timings, also some customers leave the queues
 without taking service due to the long waiting times. In this study, I was planning to see if adding a server
@@ -31,16 +36,26 @@ queue. In this study, I have analyzed two scenarios:
 counter
 2) 'Whatif' scenario: Where customers have already decided their orders
 
-```{r, fig.dim=c(5, 3)}
-data("mtcars")
-par(mar = c(4, 4, .5, .1))
-plot(mpg ~ hp, data = mtcars, pch = 19)
+```{r}
+DT::datatable(observations)
 ```
+
 
 ### Report 
 
-Put Data Here
+Put Report Here
+```{r}
 
+```
+
+### Appendix
+
+#### Arena Input Analysis
+````{r, fig.width=9, fig.height=10, echo=FALSE, warning=FALSE}
+library(knitr)
+
+include_graphics("image\\inputanalyzer.png") 
+```
 
 
 
