@@ -117,12 +117,10 @@ system
 * Increasing customer satisfaction as a means of maintaining/increasing current revenue
 
 Associated Costs: 
+
 * Lower employee utilization at service windows
 * Cost to construct new window and, potentially, second intercom and menu
 * Net reduction in total time for a single order is only a matter of **seconds** 
-
-
-
 
 
 
