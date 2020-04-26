@@ -18,23 +18,10 @@ library(DT)
 
 ### Project Description
 
-Conducted a simulation study on the Wendy's Driver thru near my home from my car in the parking lot. This restaurant
-gets flooded with customers at night, especially on weekends and there are long queues outside the
-restaurant. Customers' waiting timeis quite high on these timings, also some customers leave the queues
-without taking service due to the long waiting times. In this study, I was planning to see if adding a server
-at the peak timings would help reduce customer waiting time significantly and thereby help restaurant
-serve more customers and make more profit. But after my conversation with the manager of the
-restaurant, I came to know that adding one more server just to reduce customers' waiting time is not a
-beneficial option for the restaurant as they will need to pay the additional server. But after the close
-observation of the system, I realized that some customers decide their order after arriving at the counter,
-mainly due to unavailability of menu (Though menu is available on the screen it is very inconvenient to
-read it from a distance). Also,those customers who come in groups discuss their order after reaching to
-an order counter, which consumes a lot of time and other customers have to spend more time waiting in
-queue. In this study, I have analyzed two scenarios:
+Given the current situation of the pandemic, it was difficult to find a way to collect data safely for an actual problem during normal "life". So instead I chose to collect data and model a problem I observed at the fast-food drive thru restaurants in my town.  I wanted to provide evidence via modelling in Arena to justify the cost of implementating a second outdoor menu and ordering lane to improve drive thru efficiency. 
 
-1) 'Original'scenario:Where some percentage of customers decide their orders after arriving at the
-counter
-2) 'Whatif' scenario: Where customers have already decided their orders
+I collected the observations below while monitoring the drive-thru lane at my local Wendy's while sitting in my car in the parking lot.  This is a single lane ordering, single menu, 2 service window restaurant that was operating only a single window for payment and food.  The table below doesnt have any metadata for the observations that they were captured over a few different days for different time periods whenever I needed to leave to shope for essential goods.
+
 
 ```{r}
 DT::datatable(observations)
@@ -43,10 +30,95 @@ DT::datatable(observations)
 
 ### Report 
 
-Put Report Here
-```{r}
+The primary objective was: 
+Find deficiencies in the drive Find deficiencies in the drive
+-through through
+process process
 
+Accurately simulate the system using Accurately simulate the system using
+Arena software.
+
+Goal was to figure out
+a. The average time in system
+b. The average waiting time in queue
+
+
+
+PROCESS OF THE SYSTEM PROCESS OF THE SYSTEM
+
+Inter arrival points being consider are: Inter arrival points being consider are:
+1. Entity enters the system queue and it stops at 1. Entity enters the system queue and it stops at the
+"intercom box intercom box
+"
+2. Entity time to place an order 2. Entity time to place an order
+3. After the order is placed, entity goes from the 3. After the order is placed, entity goes from the
+"ordering portal ordering portal
+" to the server window to the server window
+4. Entity at the server window 4. Entity at the server window
+5. Entity exits the system 5. Entity exits the system
+
+EXPERIMENTAL SETUP EXPERIMENTAL SETUP
+
+Observed system to come up with a Observed system to come up with a
+proper Arena model. proper Arena model.
+ Entities Entities
+- Cars going through system Cars going through system
+-Variables Variables
+- size of car, quantity of food and drinks ordered, size of car, quantity of food and drinks ordered,
+payment type, change giv payment type, change given or not. en or not.
+ Resources Resources
+- Ordering Intercom Box Ordering Intercom Box
+- Server Window Server Window
+
+EXPERIMENTAL SETUP EXPERIMENTAL SETUP
+ Delays
+- Size of order Size of order
+- Number of cars in queue Number of cars in queue
+- Customer delays Customer delays
+- Unexpected Unexpected
+- Car break down, intercom malfunction, server difficulties Car break down, intercom malfunction, server difficulties
+
+
+
+
+Amount of food and drinks ordered Amount of food and drinks ordered corresponded to amount of time spent at corresponded to amount of time spent at " "intercom box intercom box" "and server window. and server window.
+
+Average time in system Average time in system 
+  -2.74 minutes
+  
+Average waiting time between resources Average waiting time between resources -35.05 seconds
+
+
+TACTICAL CONSIDERATION TACTICAL CONSIDERATION
+
+ Add a second server window Add a second server window
+ Benefits Benefits
+. Increase capacity of customers per day Increase capacity of customers per day
+. Increased server availability Increased server availability
+. Decrease amount of time it takes to go through the Decrease amount of time it takes to go through the
+system
+
+ Increasing customer satisfaction ensuring future Increasing customer satisfaction ensuring future
+business.
+
+TACTICAL CONSIDERATIONS TACTICAL CONSIDERATIONS
+
+ Losses
+. Decreased server utilization Decreased server utilization
+. High cost to construct new window High cost to construct new window
+
+
+ Loss of business during construction period Loss of business during construction period
+. Saves only seconds off of total time in system Saves only seconds off of total time in system
+
+
+````{r, fig.width=9, fig.height=10, echo=FALSE, warning=FALSE}
+library(knitr)
+
+include_graphics("image\\results.png") 
 ```
+
+
 
 ### Appendix
 
@@ -56,6 +128,38 @@ library(knitr)
 
 include_graphics("image\\inputanalyzer.png") 
 ```
+
+#### Arena Input Analysis Summary
+````{r, fig.width=9, fig.height=10, echo=FALSE, warning=FALSE}
+library(knitr)
+
+include_graphics("image\\inputanalyzersummary.png") 
+```
+
+Analysis output shows the  Gamma and Weibull distributions have the smallest squared error.
+
+
+````{r, fig.width=9, fig.height=10, echo=FALSE, warning=FALSE}
+library(knitr)
+
+include_graphics("image\\Gamma.png") 
+
+include_graphics("image\\weibull.png") 
+```
+
+
+All p-values greater than .015.  Gamma is slightly higher so it was chosen
+
+````{r, fig.width=9, fig.height=10, echo=FALSE, warning=FALSE}
+library(knitr)
+
+include_graphics("image\\flow.png") 
+
+```
+
+Process flow from Arena
+
+
 
 
 

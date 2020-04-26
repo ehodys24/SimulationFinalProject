@@ -1,0 +1,45 @@
+SIMAN Run Controller.
+
+4474.3162 Hours>
+                                      ARENA Simulation Results
+                                             Ethan Hodys
+
+                                  Summary for Replication 1 of 1
+
+Project: Unnamed Project                                             Run execution date : 4/26/2020
+Analyst: Ethan Hodys                                                 Model revision date: 4/26/2020
+
+Replication ended at time      : 4474.3162 Hours 
+Base Time Units: Hours
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+Entity 1.VATime                             1.5005     .00945     1.0078     1.9881       2280    
+Entity 1.NVATime                            .00000     .00000     .00000     .00000       2280    
+Entity 1.WaitTime                           .00000     .00000     .00000     .00000       2280    
+Entity 1.TranTime                           .00000     .00000     .00000     .00000       2280    
+Entity 1.OtherTime                          .00000     .00000     .00000     .00000       2280    
+Entity 1.TotalTime                          1.5005     .00945     1.0078     1.9881       2280    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                .76492     .02291     .00000     4.0000     2.0000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           2282.0    
+Entity 1.NumberOut                          2280.0    
+System.NumberOut                            2280.0    
+
+
+Simulation run time: 0.07 minutes.
+Simulation run complete.
